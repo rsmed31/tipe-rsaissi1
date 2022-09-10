@@ -64,7 +64,7 @@ def ant_colony():
 
          a=random.randint(1,100)
          a=str(a)
-         fname="website/static"+a+".png"
+         fname="website/tmp"+a+".png"
          fname1=a+".png"
          plt.savefig(fname)         
          return render_template('index.html' , value=fname1)        
