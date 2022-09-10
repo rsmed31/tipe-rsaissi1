@@ -12,15 +12,15 @@
     <a href="articles#link3"><b>Foudre</b></a>  
   </div> 
 </div>
-<a href="/experiences" class="active"><i class="fa-solid fa-flask-vial"></i>Experiences</a>
-<a href="/ant-colony"><i class="fa-solid fa-draw-polygon"></i>Ant-colony</a>
+<a href="/experiences" ><i class="fa-solid fa-flask-vial"></i>Experiences</a>
+<a href="/ant-colony" class="active"><i class="fa-solid fa-draw-polygon"></i>Ant-colony</a>
 <a href="#meilleur-strategie"><i class="fa-solid fa-lightbulb"></i>Meilleur-strategie</a>
 {% endblock %}
 
 {% block body %} 
 <div>
 <h1 align="center" style="color:white;"><b>Resultats </b><i class="fa-solid fa-chart-line"></i> :</h1>
-<img src="{{url_for('public', filename=value)}}" width="auto" height="auto"></img>
+<img src="{{url_for('static', filename=value)}}" width="auto" height="auto"></img>
 </div>
 {{ value }}
 {% endblock %}
