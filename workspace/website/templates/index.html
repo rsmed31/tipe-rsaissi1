@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block active %} 
+<a  href="/"><i class="fa fa-fw fa-home"></i>Accueil</a>
+
+<div class="dropdown">
+  <button class="dropbtn"><i class="fa-solid fa-newspaper"></i>Articles
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-content">
+    <a href="articles#link1"><b>Triboelectricite</b></a>
+    <a href="articles#link2"><b>Piezoelectricite</b></a>
+    <a href="articles#link3"><b>Foudre</b></a>  
+  </div> 
+</div>
+<a href="/experiences" class="active"><i class="fa-solid fa-flask-vial"></i>Experiences</a>
+<a href="/ant-colony"><i class="fa-solid fa-draw-polygon"></i>Ant-colony</a>
+<a href="#meilleur-strategie"><i class="fa-solid fa-lightbulb"></i>Meilleur-strategie</a>
+{% endblock %}
+
+{% block body %} 
+<div>
+<h1 align="center" style="color:white;"><b>Resultats </b><i class="fa-solid fa-chart-line"></i> :</h1>
+<img src="{{url_for('public', filename=value)}}" width="auto" height="auto"></img>
+</div>
+{{ value }}
+{% endblock %}
