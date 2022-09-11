@@ -9,6 +9,9 @@ import os
 from website import views
 import random
 import json
+from google.cloud import storage
+import io
+
 
 
 
@@ -61,13 +64,23 @@ def ant_colony():
          ax[0].plot(best_points_coordinate[:, 0], best_points_coordinate[:, 1], 'o-r')
          pd.DataFrame(aca.y_best_history).cummin().plot(ax=ax[1])
 
-
          a=random.randint(1,100)
          a=str(a)
-         fname="website/tmp"+a+".png"
+         fname="website/tmp/"+a+".png"
          fname1=a+".png"
-         plt.savefig(fname)         
-         return render_template('index.html' , value=fname1)        
+         credential_path = "website/static/anil.json"
+         os.environ['GOOGLE_APPLICATION_CREDENTIALS'] = credential_path         
+         storage_client = storage.Client()
+         bucket = storage_client.bucket('anil-a3bb8.appspot.com')
+         blob = bucket.blob(fname1)
+         buf = io.BytesIO()
+         plt.savefig(buf, format='png')
+         blob.upload_from_string(
+          buf.getvalue(),
+          content_type='image/png')
+         buf.close()
+         u = blob.public_url       
+         return render_template('index.html' , value=u)        
         except ValueError:
             flash('entrer une valeur valide', category='error')
     return render_template('ant-colony.html')
