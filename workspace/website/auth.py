@@ -63,6 +63,7 @@ def ant_colony():
          best_points_coordinate = points_coordinate[best_points_, :]
          ax[0].plot(best_points_coordinate[:, 0], best_points_coordinate[:, 1], 'o-r')
          pd.DataFrame(aca.y_best_history).cummin().plot(ax=ax[1])
+         plt.title('la plus courte distance entre les pts')
 
          a=random.randint(1,100)
          a=str(a)
