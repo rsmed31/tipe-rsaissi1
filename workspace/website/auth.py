@@ -38,14 +38,15 @@ def ant_colony():
         l=liste.split(",")
         n=len(l)
         b=0
-        for k in range(n//2):
+        try:
+         for k in range(n//2):
             ant.append([])
-        for i in range(n//2):
+         for i in range(n//2):
             for j in range(2):
                 c=int(l[b])
                 ant[i].append(c)
                 b=b+1
-        try:
+
          num_points = n//2
          points_coordinate =  np.array(ant) # Generate the coordinates of the point
          distance_matrix = spatial.distance.cdist(points_coordinate, points_coordinate, metric='euclidean')# The function is used to calculate the distance between two input sets
